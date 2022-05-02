@@ -1,0 +1,30 @@
+	/*-----criando o banco de dados-----*/
+create database estoque;
+	/*-----selecionando o banco de dados-----*/
+use estoque;
+	/*-----criando a tabela-----*/
+create table produtos(
+	/*-----criando as colunas-----*/
+codigo int(5) primary key not null auto_increment,
+descricao varchar(45) not null,
+preco double not null
+);
+	/*-----descrevendo a tabela-----*/
+describe produtos;
+	/*-----alterando a tabela adicionando uma coluna-----*/
+alter table produtos add categoria varchar(45) after preco;
+	/*-----inserindo dados-----*/
+insert into produtos(descricao, preco, categoria)values("Arroz", 4.99, "Cereais");
+insert into produtos(descricao, preco, categoria)values("Feijão", 8.00, "Cereais");
+insert into produtos(descricao, preco, categoria)values("Frango", 13.69, "Carnes");
+insert into produtos(descricao, preco, categoria)values("Óleo", 6.34, "Enlatados");
+insert into produtos(descricao, preco, categoria)values("Queijo", 7.90, "Leite e derivados");
+	/*-----pesquisando todos os dados-----*/
+select * from produtos;
+	/*-----pesquisando dados específicos-----*/
+select * from produtos where preco < 10;
+	/*-----deletando dados-----*/
+delete from produtos where codigo = 2;
+	/*-----atualizando dados-----*/
+update produtos set descricao = "Carne de boi" where codigo = 3;
+
